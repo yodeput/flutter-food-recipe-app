@@ -23,8 +23,14 @@ class $AssetsEnvGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/banner.png
+  AssetGenImage get banner => const AssetGenImage('assets/images/banner.png');
+
   /// File path: assets/images/logo.svg
   String get logo => 'assets/images/logo.svg';
+
+  /// File path: assets/images/logo2.png
+  AssetGenImage get logo2 => const AssetGenImage('assets/images/logo2.png');
 
   /// File path: assets/images/logo_only.svg
   String get logoOnly => 'assets/images/logo_only.svg';

@@ -1,0 +1,5 @@
+flutter_native_splash:
+  color: "#EE8100"
+  branding: assets/images/logo2.png
+  branding_mode: center
+  android_12:

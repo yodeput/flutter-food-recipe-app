@@ -61,6 +61,7 @@ dependencies:
   flutter_dotenv: ^5.0.2
   flutter_svg: ^1.0.3
   lottie: ^1.2.2
+  flutter_native_splash: ^2.1.1
 
 dev_dependencies:
   flutter_test:
