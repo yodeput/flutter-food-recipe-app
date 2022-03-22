@@ -37,36 +37,6 @@ class ConfigStore extends GetxController {
     return StorageService.to.setBool(STORAGE_SKIP_WELCOME, true);
   }
 
-  Future<bool> setFavorite(Food item) async {
-    try {
-      List<Food> data = getFavorite();
-      final index = data.indexWhere((element) => element.name!.toLowerCase() == item.name!.toLowerCase());
-      if (index >= 0) {
-        data.removeAt(index);
-      } else {
-        data.add(item);
-      }
-      var stringify = jsonEncode(data);
-      await StorageService.to.setString(STORAGE_FAVORIT_KEY, "");
-      await StorageService.to.setString(STORAGE_FAVORIT_KEY, stringify);
-      return true;
-    } catch (error) {
-      print("setFavorite >>> ${error}");
-      return false;
-    }
-  }
-
-  List<Food> getFavorite() {
-    var data = StorageService.to.getString(STORAGE_FAVORIT_KEY);
-    if (data.isNotEmpty) {
-      List<dynamic> list = jsonDecode(data);
-      var dataList = List<Food>.from(list.map((v) => Food.fromJson(v)));
-      dataList.forEach((element) => element.isFavorit = true);
-      return dataList;
-    }
-    return [];
-  }
-
   void onInitLocale() {
     var langCode = StorageService.to.getString(STORAGE_LANGUAGE_CODE);
     if (langCode.isEmpty) return;

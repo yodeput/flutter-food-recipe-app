@@ -4,12 +4,16 @@ import 'package:foods_yodeput/common/apis/apis.dart';
 import 'package:foods_yodeput/common/store/store.dart';
 import 'package:foods_yodeput/common/widgets/widgets.dart';
 import 'package:foods_yodeput/model/food.dart';
+import 'package:foods_yodeput/repository/FoodRespository.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'index.dart';
 
 class HomeController extends GetxController {
-  HomeController();
+  HomeController(this.repository);
+
+  final FoodRespository repository;
+
 
   final RefreshController refreshController = RefreshController(
     initialRefresh: false,
@@ -37,7 +41,7 @@ class HomeController extends GetxController {
     state.foodsList = null;
     var _duration = Duration(milliseconds: 1500);
     Timer(_duration, () {
-      FoodsApi.getFoods(onSuccess: (data) {
+      repository.getData(onSuccess: (data) {
         state.foodsList = data;
         getFavorit();
         state.foodsList.forEach((v) {
@@ -62,7 +66,7 @@ class HomeController extends GetxController {
   }
 
   setFavorit(Food data) {
-    ConfigStore().setFavorite(data).then((value) {
+    repository.setFavorite(data).then((value) {
       if (data.isFavorit == false) {
         toastSuccess(msg: 'Marked as Favorite is Success');
         data.isFavorit = true;
@@ -76,7 +80,7 @@ class HomeController extends GetxController {
   }
 
   getFavorit() async {
-    var data = ConfigStore().getFavorite();
+    var data = repository.getFavorite();
     state.favList = data;
   }
 

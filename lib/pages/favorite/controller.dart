@@ -1,14 +1,16 @@
 import 'dart:async';
 
 import 'package:foods_yodeput/common/store/store.dart';
+import 'package:foods_yodeput/repository/FoodRespository.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'index.dart';
 
 class FavoriteController extends GetxController {
-  FavoriteController();
-
+  FavoriteController(this.repository);
+  final FoodRespository repository;
   final state = FavoriteState();
+
 
   final RefreshController refreshController = RefreshController(
     initialRefresh: false,
@@ -19,7 +21,7 @@ class FavoriteController extends GetxController {
     refreshController.refreshCompleted(resetFooterState: false);
   }
   getFavorite() async {
-    var data = ConfigStore().getFavorite();
+    var data = repository.getFavorite();
     state.favList = null;
     var _duration = Duration(milliseconds: 1000);
     Timer(_duration, () {

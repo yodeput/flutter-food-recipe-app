@@ -8,7 +8,7 @@ class ApplicationBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<ApplicationController>(() => ApplicationController());
-    Get.lazyPut<HomeController>(() => HomeController());
-    Get.lazyPut<FavoriteController>(() => FavoriteController());
+    Get.lazyPut<HomeController>(() => HomeController(Get.find()));
+    Get.lazyPut<FavoriteController>(() => FavoriteController(Get.find()));
   }
 }
