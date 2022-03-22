@@ -1,0 +1,103 @@
+name: foods_yodeput
+description: Technical Test Mobile Developer Radya Labs.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+
+  get: ^4.6.1
+  get_storage: ^2.0.3
+
+  flutter_screenutil: ^5.0.0+2
+
+  pull_to_refresh: ^2.0.0
+
+  # toast
+  fluttertoast: ^8.0.9
+
+  # easyloading
+  flutter_easyloading: ^3.0.3
+
+  # http
+  dio: ^4.0.4
+  dio_cookie_manager: ^2.0.0
+  cookie_jar: ^3.0.1
+  dio_http_formatter: ^2.1.0
+
+  cached_network_image: ^3.2.0
+  flutter_cache_manager: ^3.3.0
+
+  # share
+  share: ^2.0.4
+
+  package_info_plus: ^1.4.0
+  shimmer: ^2.0.0
+  cool_alert: ^1.1.0
+  flutter_dotenv: ^5.0.2
+  flutter_svg: ^1.0.3
+  lottie: ^1.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner:
+  flutter_gen_runner:
+
+## Install derry from https://pub.dev/packages/derry and run derry build, derry watch, derry gen
+scripts: derry.yaml
+
+# https://pub.dev/packages/flutter_gen, after new assets run derry gen
+flutter_gen:
+  output: lib/gen/
+  assets:
+    enabled: true
+  fonts:
+    enabled: true
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/env/
+    - assets/images/
+    - assets/lottie/
+
+  fonts:
+    - family: Avenir
+      fonts:
+        - asset: assets/fonts/Avenir-Book.ttf
+          weight: 400 # normal
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
+          weight: 600
+    - family: Iconfont
+      fonts:
+        - asset: assets/fonts/iconfont.ttf

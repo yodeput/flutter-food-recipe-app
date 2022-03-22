@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="202px" height="194px" viewBox="0 0 202 194" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <defs>
+        <filter x="-13.7%" y="-14.4%" width="127.4%" height="128.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="1" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPad-Pro-12.9″" transform="translate(-42.000000, -344.000000)" stroke="#2C2C2C" stroke-width="10">
+            <g id="prod" transform="translate(28.000000, 333.000000)">
+                <g id="Group" filter="url(#filter-1)" transform="translate(31.000000, 28.000000)">
+                    <path d="M84.5562914,5 C91.2338575,5 97.4318415,7.02277828 102.546249,10.4854712 C107.791246,14.03658 111.899055,19.09938 114.205884,25.0397763 C114.849893,26.6981853 115.344161,28.4008523 115.690521,30.1269325 C117.259936,29.2558797 118.880421,28.5285439 120.534092,27.9436313 C123.891434,26.7561211 127.511513,26.1111111 131.284768,26.1111111 C140.052299,26.1111111 147.993408,29.6002459 153.740273,35.2525505 C159.456864,40.8750798 163,48.6404882 163,57.2222222 C163,65.8039563 159.456864,73.5693647 153.740273,79.191894 C147.993408,84.8441986 140.052299,88.3333333 131.284768,88.3333333 C126.805021,88.3333333 122.541226,87.4247088 118.675184,85.7778087 L118.675184,85.7778087 L112.262949,155 L20.7074162,155 L35.3971673,89.4176466 C25.9995766,89.0443277 17.6520208,84.6533105 12.0894025,77.9397478 C7.65935283,72.5930902 5,65.769058 5,58.3333333 C5,49.7515993 8.54313578,41.9861909 14.2597272,36.3636616 C20.006592,30.711357 27.9477007,27.2222222 36.7152318,27.2222222 C40.6918697,27.2222222 44.4983779,27.9387192 48.0072819,29.2506214 C49.7720139,29.9104159 51.494756,30.7332559 53.152959,31.7197395 C53.4241716,29.8500006 53.8680609,27.9980155 54.4882758,26.1881292 C56.6257601,19.950608 60.7240417,14.6026645 66.0539349,10.839781 C71.2642,7.16135441 77.6540528,5 84.5562914,5 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                    <path d="M114,130 C117.333333,91.3333333 119,72 119,72" id="Line" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <line x1="114.441667" y1="130.5" x2="48.5583333" y2="130.5" id="Line" stroke-linecap="round" stroke-linejoin="round"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
