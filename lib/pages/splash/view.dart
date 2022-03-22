@@ -32,7 +32,7 @@ class SplashPage extends GetView<SplashController> {
     return Padding(
             padding: EdgeInsets.only(bottom: (40 + 20.0).h, top: 30.h),
             child: Text(
-              "v ${controller.state.appVersion}",
+              "${controller.state.appVersion}",
               style: Theme.of(Get.context!).textTheme.titleMedium?.copyWith(
                   color: AppColor.onPrimary, fontWeight: FontWeight.bold),
             ),

@@ -22,12 +22,17 @@ class SplashController extends GetxController {
 
   getAppInfo() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    state.appVersion = packageInfo.version;
+    state.appVersion = "v ${packageInfo.version}";
+  }
+
+  @override
+  void onInit() {
+    getAppInfo();
+    super.onInit();
   }
 
   @override
   void onReady() {
     super.onReady();
-    getAppInfo();
   }
 }
