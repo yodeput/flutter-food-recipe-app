@@ -7,6 +7,7 @@ import 'package:foods_yodeput/global.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foods_yodeput/main_bindings.dart';
 import 'package:get/get.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.light,
           debugShowCheckedModeBanner: false,
           initialRoute: AppPages.INITIAL,
+          initialBinding: MainBindings(),
           getPages: AppPages.routes,
           builder: EasyLoading.init(),
           navigatorObservers: [AppPages.observer],
@@ -40,9 +42,6 @@ class MyApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          supportedLocales: ConfigStore.to.languages,
-          locale: ConfigStore.to.locale,
-          fallbackLocale: Locale('en', 'US'),
           enableLog: true,
           logWriterCallback: Logger.write,
         ),
