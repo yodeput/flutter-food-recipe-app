@@ -35,12 +35,7 @@ class FavoritePage extends GetView<FavoriteController> {
             horizontal: 10.w,
           ),
           sliver: Obx(() {
-            return SliverGrid(
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 250,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-              ),
+            return SliverList(
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
                   return _buildItemView(controller.state.favList[index], index);
@@ -63,38 +58,22 @@ class FavoritePage extends GetView<FavoriteController> {
           final result = await Get.toNamed(AppRoutes.DETAIL, arguments: item);
           controller.refreshData();
         },
-        child: Stack(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             netImageCached(
               item.image ?? "",
-              width: double.infinity.w,
-              height: double.infinity.h,
+              width: 100.w,
+              height: 100.h,
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width: double.infinity,
-                padding: EdgeInsets.only(
-                    top: 30.h, bottom: 10.w, left: 10.w, right: 10.w),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(6),
-                        bottomRight: Radius.circular(6)),
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.transparent,
-                        Colors.black87,
-                      ],
-                    )),
-                child: Text(
-                  item.name!,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(Get.context!).textTheme.titleSmall?.copyWith(
-                      color: AppColor.onPrimary, fontWeight: FontWeight.bold),
-                ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                item.name!,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(Get.context!).textTheme.titleMedium?.copyWith(
+                    color: AppColor.onBackground, fontWeight: FontWeight.bold),
               ),
             ),
           ],

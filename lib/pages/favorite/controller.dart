@@ -17,13 +17,13 @@ class FavoriteController extends GetxController {
   );
 
   refreshData() async {
-    await getFavorite();
+    await getFavorite(isRefresh: true);
     refreshController.refreshCompleted(resetFooterState: false);
   }
-  getFavorite() async {
+  getFavorite({bool isRefresh = false}) async {
     var data = repository.getFavorite();
     state.favList = null;
-    var _duration = Duration(milliseconds: 1000);
+    var _duration = Duration(milliseconds: !isRefresh ? 1000 : 0);
     Timer(_duration, () {
       state.favList = data;
     });
