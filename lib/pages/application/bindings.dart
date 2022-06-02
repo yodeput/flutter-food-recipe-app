@@ -1,5 +1,7 @@
-import 'package:foods_yodeput/pages/favorite/index.dart';
-import 'package:foods_yodeput/pages/home/index.dart';
+
+import 'package:foods_yodeput/pages/application/fragment/favorite/index.dart';
+import 'package:foods_yodeput/pages/application/fragment/home/index.dart';
+import 'package:foods_yodeput/pages/detail/index.dart';
 import 'package:get/get.dart';
 
 import 'controller.dart';

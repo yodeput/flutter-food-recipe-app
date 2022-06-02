@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:foods_yodeput/common/services/services.dart';
-import 'package:foods_yodeput/common/store/store.dart';
 import 'package:foods_yodeput/common/style/style.dart';
-import 'package:foods_yodeput/common/utils/utils.dart';
-import 'package:foods_yodeput/repository/FoodRespository.dart';
 import 'package:get/get.dart';
 
 class Global {
@@ -12,7 +9,6 @@ class Global {
     WidgetsFlutterBinding.ensureInitialized();
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     setSystemUi();
-    Loading();
 
     await Get.putAsync<StorageService>(() => StorageService().init(), permanent: true);
   }

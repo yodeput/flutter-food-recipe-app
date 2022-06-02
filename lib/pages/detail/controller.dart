@@ -1,26 +1,59 @@
 import 'dart:async';
 
-import 'package:foods_yodeput/common/routes/routes.dart';
-import 'package:foods_yodeput/pages/home/controller.dart';
+import 'package:foods_yodeput/data/model/model.dart';
+import 'package:foods_yodeput/pages/application/fragment/home/index.dart';
+import 'package:foods_yodeput/repository/reposiroty.dart';
 import 'package:get/get.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 import 'index.dart';
 
 class DetailController extends GetxController {
-  final state = WelcomeState();
+  final RecipeRepository repo;
+
+  DetailController(this.repo);
+
+  final DetailState state = DetailState();
   final HomeController homeController = Get.find();
-
   dynamic argumentData = Get.arguments;
-  DetailController();
+  Recipe recipe = Recipe();
 
-  setFavorit(){
-    homeController.setFavorit(state.food);
+
+  setFavorit() async {
+    recipe = await homeController.setFavorit(recipe);
+    state.detail.isFavorit = recipe.isFavorit;
   }
 
   @override
   void onReady() {
     super.onReady();
-    state.food = argumentData;
+    recipe = argumentData;
+    fetchData(recipe.key!);
+  }
+
+  fetchData(String key) {
+    repo.getRecipe(
+        key: key,
+        onSuccess: (data) async {
+          state.detail = data;
+          await getFavorit();
+        },
+        loading: (isLoading) {
+          state.isLoading.value = isLoading;
+        },
+        onError: (error) {
+          print("DetailController [fetchData]=> $error");
+          throw error;
+        });
+  }
+
+  getFavorit() async {
+    var data = repo.getFavorite();
+    state.favList.clear();
+    state.favList.addAll(data);
+    final index =
+        state.favList.indexWhere((element) => element.key == recipe.key);
+    if (index >= 0) {
+      state.detail.isFavorit = true;
+    }
   }
 }

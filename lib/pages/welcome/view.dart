@@ -25,7 +25,6 @@ class WelcomePage extends GetView<WelcomeController> {
       ),
     );
   }
-
   Widget _buildLogo() {
     return Padding(
       padding: EdgeInsets.only(top: 20.h),
@@ -108,9 +107,9 @@ class WelcomePage extends GetView<WelcomeController> {
 
   @override
   Widget build(BuildContext context) {
+    AppTheme.setStatusBarColor();
     return Scaffold(
-      backgroundColor: AppColor.primary
-      ,
+      backgroundColor: AppColor.primary,
       body: Center(
         child: Column(
           children: <Widget>[

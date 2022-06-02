@@ -11,6 +11,7 @@ import 'index.dart';
 class SplashPage extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
+    AppTheme.setStatusBarColor();
     controller.startTimer();
     return Scaffold(
       backgroundColor: AppColor.primary,

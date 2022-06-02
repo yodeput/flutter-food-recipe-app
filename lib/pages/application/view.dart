@@ -5,9 +5,9 @@ import 'package:foods_yodeput/common/constant/values.dart';
 import 'package:foods_yodeput/common/style/style.dart';
 import 'package:foods_yodeput/common/widgets/widgets.dart';
 import 'package:foods_yodeput/gen/assets.gen.dart';
-import 'package:foods_yodeput/pages/favorite/index.dart';
-import 'package:foods_yodeput/pages/home/index.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foods_yodeput/pages/application/fragment/favorite/index.dart';
+import 'package:foods_yodeput/pages/application/fragment/home/index.dart';
 import 'package:get/get.dart';
 
 import 'index.dart';
@@ -15,6 +15,7 @@ import 'index.dart';
 class ApplicationPage extends GetView<ApplicationController> {
   AppBar _buildAppBar() {
     return transparentAppBar(
+      statusBarColor: AppColor.background,
       title: Obx(
         () => Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -23,12 +24,10 @@ class ApplicationPage extends GetView<ApplicationController> {
             controller.tabTitles[controller.state.page] == 'Foodies'
                 ? Row(
                     children: [
-                      SvgPicture.asset(
-                        Assets.images.logoOnly,
-                        semanticsLabel: 'Logo',
-                        height: 30,
-                        width: 30,
-                      ),
+                      SvgPicture.asset(Assets.images.logoOnly,
+                          semanticsLabel: 'Logo',
+                          height: 30,
+                          width: 30),
                       SizedBox.fromSize(
                         size: Size(10, 10),
                       ),
@@ -40,10 +39,10 @@ class ApplicationPage extends GetView<ApplicationController> {
             Text(
               controller.tabTitles[controller.state.page].toUpperCase(),
               style: TextStyle(
-                color: AppColor.onBackground,
+                color: AppColor.primary,
                 fontFamily: 'Montserrat',
                 fontSize: 18.sp,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w900,
               ),
             ),
           ],
@@ -81,11 +80,7 @@ class ApplicationPage extends GetView<ApplicationController> {
 
   @override
   Widget build(BuildContext context) {
-    if (GetPlatform.isAndroid) {
-      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-          statusBarColor: AppColor.primary,
-          statusBarIconBrightness: Brightness.light));
-    }
+    AppTheme.setStatusBarColor(color: AppColor.background);
     return Scaffold(
       appBar: _buildAppBar(),
       body: _buildPageView(),

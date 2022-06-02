@@ -44,4 +44,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-ios/build
+ios/build!/.packages
+
+!/.flutter-plugins-dependencies
+
+!/.flutter-plugins
+/.flutter-plugins
+/.flutter-plugins-dependencies

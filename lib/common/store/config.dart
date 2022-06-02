@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:foods_yodeput/common/services/services.dart';
 import 'package:foods_yodeput/common/constant/values.dart';
-import 'package:foods_yodeput/model/food.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 

@@ -5,6 +5,6 @@ import 'controller.dart';
 class DetailBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<DetailController>(() => DetailController());
+    Get.lazyPut<DetailController>(() => DetailController(Get.find()));
   }
 }

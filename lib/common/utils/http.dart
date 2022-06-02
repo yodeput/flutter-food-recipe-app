@@ -7,7 +7,7 @@ import 'package:dio_http_formatter/dio_http_formatter.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:foods_yodeput/common/utils/utils.dart';
 import 'package:foods_yodeput/common/constant/values.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:foods_yodeput/common/widgets/widgets.dart';
 
 class HttpUtil {
   static HttpUtil _instance = HttpUtil._internal();
@@ -47,7 +47,6 @@ class HttpUtil {
         return handler.next(response); // continue
       },
       onError: (DioError e, handler) {
-        Loading.dismiss();
         ErrorEntity eInfo = createErrorEntity(e);
         onError(eInfo);
         return handler.next(e); //continue
@@ -66,10 +65,10 @@ class HttpUtil {
         eInfo.message);
     switch (eInfo.code) {
       case 401:
-        EasyLoading.showError(eInfo.message);
+        toastDanger(msg: eInfo.message);
         break;
       default:
-        EasyLoading.showError('Something Wrong');
+        toastDanger(msg: eInfo.message);
         break;
     }
   }

@@ -1,4 +1,4 @@
-import 'package:foods_yodeput/repository/FoodRespository.dart';
+import 'package:foods_yodeput/pages/detail/controller.dart';
 import 'package:get/get.dart';
 
 import 'controller.dart';

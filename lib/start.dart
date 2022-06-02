@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:foods_yodeput/common/routes/pages.dart';
-import 'package:foods_yodeput/common/store/store.dart';
 import 'package:foods_yodeput/common/style/style.dart';
 import 'package:foods_yodeput/common/utils/utils.dart';
 import 'package:foods_yodeput/global.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foods_yodeput/main_bindings.dart';
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: Size(375, 812),
-      builder: () => RefreshConfiguration(
+      builder: (_context, _widget) => RefreshConfiguration(
         headerBuilder: () => ClassicHeader(),
         footerBuilder: () => ClassicFooter(),
         hideFooterWhenNotFull: true,
@@ -29,21 +27,24 @@ class MyApp extends StatelessWidget {
         maxOverScrollExtent: 100,
         footerTriggerDistance: 150,
         child: GetMaterialApp(
-          title: 'News',
-          theme: AppTheme.light,
+          title: 'Foodies',
+          theme: AppTheme.light.copyWith(pageTransitionsTheme: const PageTransitionsTheme(
+            builders: <TargetPlatform, PageTransitionsBuilder>{
+              TargetPlatform.android: ZoomPageTransitionsBuilder(),
+            },
+          ),),
           debugShowCheckedModeBanner: false,
           initialRoute: AppPages.INITIAL,
           initialBinding: MainBindings(),
           getPages: AppPages.routes,
-          builder: EasyLoading.init(),
           navigatorObservers: [AppPages.observer],
           localizationsDelegates: [
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          enableLog: true,
-          logWriterCallback: Logger.write,
+          enableLog: false,
+          logWriterCallback: Logger.sys,
         ),
       ),
     );

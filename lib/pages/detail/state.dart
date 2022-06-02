@@ -1,11 +1,13 @@
-import 'package:foods_yodeput/model/food.dart';
+import 'package:foods_yodeput/data/model/detail.dart';
+import 'package:foods_yodeput/data/model/recipe.dart';
 import 'package:get/get.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
-class WelcomeState {
-  var _food = Rx<Food>(Food());
-  set food(value) => _food.value = value;
-  get food => _food.value;
+class DetailState {
+  RxBool isLoading = false.obs;
 
-  // WelcomeState() {}
+  var _detail = Rx<Detail>(Detail());
+  set detail(value) => _detail.value = value;
+  get detail => _detail.value;
+
+  List<Recipe> favList = <Recipe>[].obs;
 }
